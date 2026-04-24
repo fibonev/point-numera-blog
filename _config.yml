@@ -1,0 +1,13 @@
+title: Point Numera Blog
+description: Financial insight for founders. Manufacturing, restaurants, and the numbers in between.
+url: https://blog.pointnumera.com
+baseurl: ""
+author: Filip Bonev
+permalink: /:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+paginate: 9
+paginate_path: "/page/:num/"

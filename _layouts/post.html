@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<!-- Post Hero -->
+<header class="post-hero">
+  <span class="post-category">{{ page.category | replace: '-', ' ' | capitalize }}</span>
+  <h1>{{ page.title }}</h1>
+  {% if page.excerpt %}
+  <p class="post-excerpt">{{ page.excerpt | strip_html }}</p>
+  {% endif %}
+  <div class="post-meta">
+    <span>{{ page.author | default: site.author }}</span>
+    <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+    {% if page.read_time %}<span>{{ page.read_time }} min read</span>{% endif %}
+  </div>
+</header>
+
+<!-- Post Body -->
+<article class="post-body">
+  {{ content }}
+</article>
+
+<!-- Related Posts -->
+{% include related-posts.html %}
+
+<!-- Previous / Next Navigation -->
+<nav class="post-nav">
+  {% if page.previous %}
+  <a href="{{ page.previous.url | relative_url }}" class="post-nav-item">
+    <span class="post-nav-label">&larr; Previous</span>
+    <span class="post-nav-title">{{ page.previous.title }}</span>
+  </a>
+  {% else %}
+  <div class="post-nav-item"></div>
+  {% endif %}
+
+  {% if page.next %}
+  <a href="{{ page.next.url | relative_url }}" class="post-nav-item" style="text-align: right;">
+    <span class="post-nav-label">Next &rarr;</span>
+    <span class="post-nav-title">{{ page.next.title }}</span>
+  </a>
+  {% else %}
+  <div class="post-nav-item"></div>
+  {% endif %}
+</nav>

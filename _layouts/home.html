@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+<!-- Hero -->
+<section class="home-hero">
+  <p class="eyebrow">INSIGHTS</p>
+  <h1>Financial clarity for founders.</h1>
+  <p class="subtitle">Practical finance for manufacturing businesses and restaurant operators across the Benelux.</p>
+</section>
+
+<!-- Category Filter -->
+<div class="category-filter">
+  <div class="category-filter-inner">
+    <button class="filter-pill active" data-filter="all">All</button>
+    <button class="filter-pill" data-filter="manufacturing">Manufacturing</button>
+    <button class="filter-pill" data-filter="restaurant">Restaurant</button>
+    <button class="filter-pill" data-filter="cash-flow">Cash Flow</button>
+    <button class="filter-pill" data-filter="pricing">Pricing</button>
+    <button class="filter-pill" data-filter="fractional-cfo">Fractional CFO</button>
+    <button class="filter-pill" data-filter="founder-finance">Founder Finance</button>
+    <button class="filter-pill" data-filter="coffee-roaster">Coffee &amp; Cafes</button>
+  </div>
+</div>
+
+<!-- Post Grid -->
+<div class="post-grid-section">
+  <div class="post-grid">
+    {% for post in paginator.posts %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Pagination -->
+{% if paginator.total_pages > 1 %}
+<nav class="pagination" aria-label="Page navigation">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="page-btn">&larr; Newer</a>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <span class="page-btn active">{{ page }}</span>
+    {% elsif page == 1 %}
+      <a href="{{ '/' | relative_url }}" class="page-btn">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-btn">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="page-btn">Older &rarr;</a>
+  {% endif %}
+</nav>
+{% endif %}
+
+{{ content }}

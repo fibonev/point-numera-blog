@@ -1,0 +1,1 @@
+blog.pointnumera.com

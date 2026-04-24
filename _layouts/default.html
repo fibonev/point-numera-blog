@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  {% if page.meta_description %}
+  <meta name="description" content="{{ page.meta_description }}">
+  {% elsif page.excerpt %}
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 155 }}">
+  {% else %}
+  <meta name="description" content="{{ site.description }}">
+  {% endif %}
+
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  {% if page.meta_description %}
+  <meta property="og:description" content="{{ page.meta_description }}">
+  {% elsif page.excerpt %}
+  <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 155 }}">
+  {% else %}
+  <meta property="og:description" content="{{ site.description }}">
+  {% endif %}
+  {% if page.og_image %}
+  <meta property="og:image" content="{{ page.og_image | absolute_url }}">
+  {% endif %}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
+
+  <!-- Jekyll SEO Tag -->
+  {% seo %}
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- Article Structured Data -->
+  {% if page.layout == 'post' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ page.title | escape }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ page.author | default: site.author }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Point Numera",
+      "url": "https://www.pointnumera.com"
+    }{% if page.og_image %},
+    "image": "{{ page.og_image | absolute_url }}"{% endif %}
+  }
+  </script>
+  {% endif %}
+</head>
+<body>
+
+  <div id="reading-progress"></div>
+
+  {% include nav.html %}
+
+  {{ content }}
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% assign related = site.posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | limit: 3 %}
+{% if related.size > 0 %}
+<section class="related-posts">
+  <div class="related-heading">More on {{ page.category | replace: '-', ' ' | capitalize }}</div>
+  <div class="related-grid">
+    {% for post in related %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
