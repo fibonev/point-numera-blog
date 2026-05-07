@@ -69,6 +69,10 @@ tags: [cash flow, pricing, margins] # OPTIONAL — 2–4 lowercase tags
 read_time: 5 # OPTIONAL — estimated minutes, shown in post hero
 og_image: /assets/images/posts/[slug]/og.jpg # OPTIONAL — 1200×630px OG image for LinkedIn
 meta_description: "..." # OPTIONAL — if omitted, excerpt is used. Max 155 chars.
+cta_heading: "Your custom CTA heading" # OPTIONAL — overrides default "Want clarity on your numbers?"
+cta_subtext: "Custom subtext here." # OPTIONAL — overrides default subtext in bottom CTA
+cta_tool_url: https://tools.pointnumera.com/tools/dish-profitability-check/ # OPTIONAL — overrides tool button URL
+cta_tool_text: "Try the Dish Profitability Check" # OPTIONAL — button label. Required if cta_tool_url is set.
 ---
 ```
 
@@ -103,11 +107,11 @@ Valid category values. Use exactly one per post.
 
 ## 5. Writing a New Post — Step by Step
 
-1. Create file: `_posts/YYYY-MM-DD-your-post-slug.md`
-   - Use today's date. Slug is lowercase, hyphens only, no special characters.
+1. Copy the template: `_drafts/TEMPLATE.md` → `_posts/YYYY-MM-DD-your-slug.md`
+   - Slug is lowercase, hyphens only, no special characters.
    - Example: `_posts/2025-05-12-food-cost-percentage-explained.md`
 
-2. Write the front matter block (Section 3).
+2. Fill in the front matter block (Section 3). Uncomment CTA overrides if the post relates to a specific tool.
 
 3. Write the body in Markdown (Section 6 — Markdown reference).
 
@@ -224,10 +228,10 @@ Use for: key insight, warning, tip, or fact you want to visually separate from b
 **`type` values:**
 | Value | Background | Use for |
 |---|---|---|
-| `insight` | `#0E4F47` (primary green) | Key insight or observation |
-| `tip` | `#111a18` with yellow border | Practical tip or action |
-| `warning` | `#111a18` with red border | Common mistake or risk |
-| `example` | `#111a18` with secondary green border | Real-world example |
+| `insight` | `#0E4F47` green bg, light text | Key insight or observation |
+| `tip` | light grey bg, yellow left border | Practical tip or action |
+| `warning` | light red bg, red left border | Common mistake or risk |
+| `example` | light green bg, green left border | Real-world example |
 
 ---
 
@@ -246,22 +250,35 @@ One pull quote per post. Place it roughly one-third to halfway through the post.
 
 ### CTA Block
 
-Use for: in-post call to action. Insert once per post — either mid-post (if the post is long, 800+ words) or at the end.
+The CTA block is **added automatically at the bottom of every post** by the post layout — no manual include needed at the end.
+
+The block has three buttons:
+1. **Visit pointnumera.com** → main site
+2. **Book a free call** → cal.com/pointnumera
+3. **Explore our free tools** → tools.pointnumera.com (default) or a specific tool
+
+**To customise the bottom CTA**, set these in the post's frontmatter:
+
+```yaml
+cta_heading: "Not sure the numbers work?"
+cta_subtext: "One or two sentences. Operator-to-operator tone."
+cta_tool_url: https://tools.pointnumera.com/tools/dish-profitability-check/
+cta_tool_text: Try the Dish Profitability Check
+```
+
+**For a mid-post CTA** (long posts, 800+ words), include it manually with a custom heading. The tool button uses whatever `cta_tool_url` is set in frontmatter:
 
 ```liquid
 {% include cta-block.html
-  heading="Want clarity on your numbers?"
-  subtext="We work with manufacturing founders and restaurant operators across the Benelux. No pitch — just a conversation about where your margins are going."
-  button_text="Book a free call"
-  button_url="https://cal.com/pointnumera" %}
+  heading="Want to check your dish margins right now?"
+  subtext="The Dish Profitability Check gives you food cost %, gross margin, and your biggest cost driver in under 2 minutes." %}
 ```
 
 **Rules:**
-
-- Heading: max 8 words. Benefit-led, not feature-led.
-- Subtext: 1–2 sentences. Operator-to-operator tone. No hype.
-- Button text: action verb + object. "Book a free call" is the default — only change if the context strongly calls for it.
-- Do not use more than one CTA block per post.
+- Do not add a manual CTA at the end — the layout handles that.
+- One mid-post CTA max, for posts over 800 words.
+- Heading: max 8 words. Benefit-led.
+- Subtext: 1–2 sentences. No hype.
 
 ---
 

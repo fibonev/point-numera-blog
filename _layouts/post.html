@@ -21,6 +21,9 @@ layout: default
   {{ content }}
 </article>
 
+<!-- CTA -->
+{% include cta-block.html %}
+
 <!-- Related Posts -->
 {% include related-posts.html %}
 
@@ -32,7 +35,10 @@ layout: default
     <span class="post-nav-title">{{ page.previous.title }}</span>
   </a>
   {% else %}
-  <div class="post-nav-item"></div>
+  <a href="/" class="post-nav-item">
+    <span class="post-nav-label">&larr;</span>
+    <span class="post-nav-title">See all blog posts</span>
+  </a>
   {% endif %}
 
   {% if page.next %}
@@ -41,6 +47,9 @@ layout: default
     <span class="post-nav-title">{{ page.next.title }}</span>
   </a>
   {% else %}
-  <div class="post-nav-item"></div>
+  <a href="/" class="post-nav-item" style="text-align: right;">
+    <span class="post-nav-label">&rarr;</span>
+    <span class="post-nav-title">See all blog posts</span>
+  </a>
   {% endif %}
 </nav>

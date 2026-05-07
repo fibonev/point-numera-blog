@@ -7,6 +7,10 @@ category: restaurant
 excerpt: "Most operators calculate food cost percentage correctly but read it wrong. Here is what the number is actually signalling — and why fixing it starts before the kitchen."
 tags: [food cost, restaurant, margins, pricing]
 read_time: 5
+cta_heading: "Want to know where your margins are going?"
+cta_subtext: "I work with restaurant operators across the Netherlands on exactly this — not a generic framework, but a look at your actual numbers and where the margin is leaking."
+cta_tool_url: https://tools.pointnumera.com/tools/dish-profitability-check/
+cta_tool_text: Try the Dish Profitability Check
 ---
 
 You run the numbers at the end of the month and your food cost comes in at 32%. That feels about right. Somewhere in the back of your head you know 30% is the target, so 32% is close enough. You move on.
@@ -53,8 +57,3 @@ Your overall food cost percentage is a lagging indicator. By the time it looks w
 
 One concrete thing to do this week: pull your sales mix for the last four weeks and calculate the food cost percentage for your top three dishes by volume. If any of them is above 35%, you have found where to start.
 
-{% include cta-block.html
-  heading="Want to know where your margins are going?"
-  subtext="I work with restaurant operators across the Netherlands on exactly this — not a generic framework, but a look at your actual numbers and where the margin is leaking."
-  button_text="Book a free call"
-  button_url="https://cal.com/pointnumera" %}

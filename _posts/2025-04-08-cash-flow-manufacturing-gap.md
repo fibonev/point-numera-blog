@@ -7,6 +7,8 @@ category: manufacturing
 excerpt: "Your P&L shows profit. Your bank account tells a different story. Here is the working capital gap that catches most manufacturing SMEs off guard."
 tags: [cash flow, manufacturing, working capital, margins]
 read_time: 5
+cta_heading: "Profitable but always tight on cash?"
+cta_subtext: "I work with manufacturing founders across the Benelux on exactly this. One conversation, your actual numbers — we find the gap and what to do about it."
 ---
 
 The P&L looks fine. Revenue is up, gross margin is holding, the accountant is not worried. And yet payroll week arrives and you are staring at the account wondering how a profitable business can feel this tight.
@@ -55,8 +57,3 @@ Three things to check this week: your average collection days against your state
 
 Profitable businesses run out of cash when the timing gap is wider than the bank account can absorb. That is a structural problem, not a profitability problem. And it has a structural fix — but only once you can see where the gap actually sits.
 
-{% include cta-block.html
-  heading="Profitable but always tight on cash?"
-  subtext="I work with manufacturing founders across the Benelux on exactly this. One conversation, your actual numbers — we find the gap and what to do about it."
-  button_text="Book a free call"
-  button_url="https://cal.com/pointnumera" %}

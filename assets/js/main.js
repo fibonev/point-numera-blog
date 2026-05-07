@@ -1,69 +1,45 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ------------------------------------------------------------------ */
-  /* 1. Reading progress bar + 2. Sticky nav — single scroll handler     */
+  /* 1. Reading progress bar                                              */
   /* ------------------------------------------------------------------ */
 
   var progressBar = document.getElementById('reading-progress');
-  var siteNav     = document.getElementById('site-nav');
 
-  function onScroll() {
-    var scrollTop    = document.documentElement.scrollTop || document.body.scrollTop;
-    var scrollHeight = document.documentElement.scrollHeight;
-    var clientHeight = document.documentElement.clientHeight;
-
-    if (progressBar) {
-      var total      = scrollHeight - clientHeight;
-      var percentage = total > 0 ? (scrollTop / total) * 100 : 0;
-      progressBar.style.width = percentage + '%';
-    }
-
-    if (siteNav) {
-      if (window.scrollY > 60) {
-        siteNav.classList.add('scrolled');
-      } else {
-        siteNav.classList.remove('scrolled');
-      }
-    }
+  if (progressBar) {
+    window.addEventListener('scroll', function () {
+      var scrollTop    = document.documentElement.scrollTop || document.body.scrollTop;
+      var scrollHeight = document.documentElement.scrollHeight;
+      var clientHeight = document.documentElement.clientHeight;
+      var total        = scrollHeight - clientHeight;
+      progressBar.style.width = (total > 0 ? (scrollTop / total) * 100 : 0) + '%';
+    }, { passive: true });
   }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
   /* ------------------------------------------------------------------ */
-  /* 3. Mobile nav toggle                                                 */
+  /* 2. Mobile nav toggle (dropdown)                                      */
   /* ------------------------------------------------------------------ */
 
-  var hamburger  = document.getElementById('nav-hamburger');
-  var navOverlay = document.getElementById('nav-overlay');
+  var hamburger = document.getElementById('nav-hamburger');
+  var navLinks  = document.getElementById('nav-links');
 
-  function openMenu() {
-    navOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMenu() {
-    navOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  if (hamburger && navOverlay) {
+  if (hamburger && navLinks) {
     hamburger.addEventListener('click', function () {
-      if (navOverlay.classList.contains('open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+      var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('open', !expanded);
     });
 
-    var overlayLinks = navOverlay.querySelectorAll('a');
-    overlayLinks.forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      });
     });
   }
 
   /* ------------------------------------------------------------------ */
-  /* 4. Category filter (homepage only)                                   */
+  /* 3. Category filter (homepage only)                                   */
   /* ------------------------------------------------------------------ */
 
   var filterContainer = document.querySelector('.category-filter');
@@ -99,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ------------------------------------------------------------------ */
-  /* 5. External links open in new tab                                    */
+  /* 4. External links open in new tab                                    */
   /* ------------------------------------------------------------------ */
 
   var postBodies = document.querySelectorAll('.post-body');

@@ -9,6 +9,10 @@ tags: [pricing, white label, coffee, margin]
 read_time: 4
 # og_image: /assets/images/posts/white-label-coffee-pricing/og.jpg
 meta_description: "Most specialty roasters underprice white label because they use the wrong margin model. Here's how to calculate the real cost — and what to check before you say yes."
+cta_heading: "Not sure the numbers work?"
+cta_subtext: "I work with roasters on exactly this — one session, no retainer, no ongoing commitment. We go through the cost structure for the specific account, build the right floor price, and you leave knowing whether to say yes, what to charge, or what conditions to put on it."
+cta_tool_url: https://tools.pointnumera.com/tools/roast-batch-checker/
+cta_tool_text: Try the Roast Batch Checker
 ---
 
 A well-run brunch spot reaches out. Good reputation, solid footfall, clear aesthetic. They want their own bag — their name on it, a house blend, something consistent they can serve and sell at the counter. The volume sounds real. The conversation feels like validation.
@@ -63,8 +67,3 @@ The Roast Batch Profitability Checker has a white label mode. It includes a pack
 
 [Run the white label batch calculation](https://tools.pointnumera.com)
 
-{% include cta-block.html
-  heading="Not sure the numbers work?"
-  subtext="I work with roasters on exactly this — one session, no retainer, no ongoing commitment. We go through the cost structure for the specific account, build the right floor price, and you leave knowing whether to say yes, what to charge, or what conditions to put on it."
-  button_text="Book a free call"
-  button_url="https://cal.com/pointnumera" %}
