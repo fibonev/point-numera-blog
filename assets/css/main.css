@@ -3,7 +3,7 @@
    ============================================================ */
 
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 /* Ancizar Sans — self-hosted variable font */
 @font-face {
@@ -140,8 +140,7 @@ button {
 .nav-inner {
   max-width: min(1040px, 92%);
   margin: 0 auto;
-  padding: 0 24px;
-  height: 64px;
+  padding: 12px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -169,12 +168,15 @@ button {
 }
 
 .nav-link {
-  padding: 10px 0;
   color: rgba(255, 255, 255, 0.9);
   border-bottom: 2px solid transparent;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "Geist", "Geist Placeholder", sans-serif;
+  font-feature-settings: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
   font-size: 14px;
-  font-weight: 600;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.54px;
+  text-transform: uppercase;
   transition: color 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
 }
@@ -310,12 +312,13 @@ button {
 
 .category-filter {
   background-color: var(--bg);
-  padding: 28px 24px 0;
+  padding: 28px 0 0;
 }
 
 .category-filter-inner {
   max-width: min(1040px, 92%);
   margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -751,15 +754,18 @@ button {
 
 .cta-block {
   background-color: var(--green-primary);
-  border-radius: var(--radius-lg);
-  padding: 48px 40px;
-  margin: 48px 0;
-  text-align: center;
+  padding: 80px 0;
+}
+
+.cta-block-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .cta-heading {
   font-family: 'Ancizar Sans', 'PT Sans', Georgia, serif;
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 12px;
@@ -767,20 +773,18 @@ button {
 }
 
 .cta-subtext {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.65;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 28px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 32px;
+  max-width: 560px;
 }
 
 .cta-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .cta-block .btn-contrast {
@@ -840,7 +844,7 @@ button {
    ============================================================ */
 
 .post-nav {
-  background-color: var(--green-primary);
+  background-color: #0a0f0e;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -971,6 +975,101 @@ button {
 
 .footer-links a:hover {
   color: var(--text);
+}
+
+/* ============================================================
+   Home CTA Section
+   ============================================================ */
+
+.home-cta-section {
+  background-color: var(--green-primary);
+  padding: 80px 0;
+  margin-top: 40px;
+}
+
+.home-cta-inner {
+  max-width: min(1040px, 92%);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.home-cta-section h2 {
+  font-family: 'Ancizar Sans', 'PT Sans', Georgia, serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.home-cta-section p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 17px;
+  line-height: 1.65;
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+
+.home-cta-section .cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.home-cta-section .btn-contrast {
+  background: var(--yellow);
+  color: var(--green-primary);
+  border-color: var(--yellow);
+  font-weight: 700;
+}
+
+.home-cta-section .btn-contrast:hover {
+  background: #ede4ad;
+  border-color: #ede4ad;
+  color: var(--green-primary);
+  transform: translateY(-1px);
+}
+
+.home-cta-section .btn-outline-white {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.home-cta-section .btn-outline-white:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   Coming Soon Cards
+   ============================================================ */
+
+.post-card--coming-soon {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.post-card--coming-soon .card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  height: 100%;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2px 10px;
+  margin-bottom: 10px;
 }
 
 /* ============================================================

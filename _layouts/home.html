@@ -29,6 +29,33 @@ layout: default
     {% for post in paginator.posts %}
       {% include post-card.html post=post %}
     {% endfor %}
+
+    <article class="post-card post-card--coming-soon">
+      <div class="card-body">
+        <div class="coming-soon-badge">Coming soon</div>
+        <span class="card-category">Manufacturing &amp; Hardware</span>
+        <h3 class="card-title">Equipment leasing vs. buying: the financial case most founders get wrong</h3>
+        <p class="card-excerpt">Most manufacturers default to buying. The real question is what that decision does to your cash position - and whether the business can absorb it.</p>
+      </div>
+    </article>
+
+    <article class="post-card post-card--coming-soon">
+      <div class="card-body">
+        <div class="coming-soon-badge">Coming soon</div>
+        <span class="card-category">Restaurant &amp; HORECA</span>
+        <h3 class="card-title">Before you sign a second location lease, run these numbers</h3>
+        <p class="card-excerpt">A second location feels like growth. The lease commits you before the numbers do. Here's what to model before you sign.</p>
+      </div>
+    </article>
+
+    <article class="post-card post-card--coming-soon">
+      <div class="card-body">
+        <div class="coming-soon-badge">Coming soon</div>
+        <span class="card-category">All Founders</span>
+        <h3 class="card-title">Having a bookkeeper is not the same as having financial visibility</h3>
+        <p class="card-excerpt">Compliance keeps you legal. It doesn't tell you whether you can afford to hire, expand, or take on debt. That's a different conversation.</p>
+      </div>
+    </article>
   </div>
 </div>
 
@@ -54,5 +81,17 @@ layout: default
   {% endif %}
 </nav>
 {% endif %}
+
+<!-- CTA -->
+<div class="home-cta-section">
+  <div class="home-cta-inner">
+    <h2>Need more than a quick read?</h2>
+    <p>If your pricing, cash flow, or margins need a proper look - not just an article - that's what Point Numera is for. We work alongside founders as a fractional CFO: strategy, models, and financial clarity without the full-time hire.</p>
+    <div class="cta-actions">
+      <a class="btn btn-contrast" href="https://www.pointnumera.com" target="_blank" rel="noopener noreferrer">Visit pointnumera.com</a>
+      <a class="btn btn-outline-white" href="https://cal.com/pointnumera" target="_blank" rel="noopener noreferrer">Book a free call</a>
+    </div>
+  </div>
+</div>
 
 {{ content }}
